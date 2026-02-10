@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore characters from a legendary One Piece story arc — roles, bounties, and backstories." />
+  <title>One Piece — Arc Details</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+
+  <style>
+    /* Entrance animation for character cards */
+    .character-card {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity .4s ease, transform .4s ease,
+                  box-shadow .3s ease, border-color .3s ease, background .3s ease;
+    }
+    .character-card.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar__logo">
+      <img src="images/logo.png" alt="One Piece" />
+    </a>
+  </nav>
+
+  <!-- ==================== CONTENT ==================== -->
+  <main class="content">
+    <a href="index.html" class="back-link">← Back to Arcs</a>
+
+    <!-- Arc Banner -->
+    <div class="arc-banner">
+      <h1 id="arc-title" class="arc-banner__title">—</h1>
+      <p id="arc-saga" class="arc-banner__saga">—</p>
+      <p id="arc-desc" class="arc-banner__desc">—</p>
+    </div>
+
+    <div class="gold-divider"></div>
+
+    <h2 class="section-title" style="font-size:1.4rem; margin-bottom:.3rem;">Characters</h2>
+    <p class="section-subtitle">Click a character to learn more</p>
+
+    <!-- Character Cards -->
+    <div id="character-grid" class="character-grid"></div>
+  </main>
+
+  <!-- ==================== MODAL ==================== -->
+  <div id="modal-backdrop" class="modal-backdrop"></div>
+  <div id="modal-panel" class="modal-panel">
+    <button id="modal-close" class="modal-close">✕</button>
+
+    <!-- Character Image Placeholder -->
+    <div class="modal-image-wrap">
+      <div id="modal-char-image" class="modal-image-placeholder"></div>
+    </div>
+
+    <!-- Character Info -->
+    <div class="modal-body">
+      <h2 id="modal-char-name" class="modal-name">—</h2>
+      <p id="modal-char-role" class="modal-role">—</p>
+      <div class="modal-divider"></div>
+
+      <div class="modal-stats">
+        <div class="modal-stat">
+          <div class="modal-stat__icon">💰</div>
+          <div>
+            <div class="modal-stat__label">Bounty</div>
+            <div id="modal-char-bounty" class="modal-stat__value">—</div>
+          </div>
+        </div>
+      </div>
+
+      <p id="modal-char-desc" class="modal-desc">—</p>
+    </div>
+  </div>
+
+  <!-- Scripts — app.js first (ARC_DATA), then arc.js -->
+  <script src="js/app.js"></script>
+  <script src="js/arc.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* ================================================================
+   ONE PIECE — Loading Screen
+   ================================================================ */
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at center, var(--navy-mid) 0%, var(--navy) 70%);
+    transition: transform .8s cubic-bezier(.76, 0, .24, 1),
+        opacity .8s cubic-bezier(.76, 0, .24, 1);
+}
+
+/* ---- Radial glow behind logo ---- */
+.loading-screen::before {
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74, 155, 217, .18) 0%, transparent 70%);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ---- Logo Image ---- */
+.loading-logo {
+    position: relative;
+    animation: logo-entrance 1.2s cubic-bezier(.16, 1, .3, 1) forwards;
+}
+
+.loading-logo img {
+    height: 110px;
+    width: auto;
+    filter: drop-shadow(0 4px 24px rgba(74, 155, 217, .35));
+    animation: logo-pulse 2.5s ease-in-out infinite;
+}
+
+/* ---- Tagline ---- */
+.loading-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 1.2rem;
+    opacity: 0;
+    animation: fade-up .8s .6s ease forwards;
+}
+
+/* ---- Animated bar ---- */
+.loading-bar {
+    width: 120px;
+    height: 2px;
+    margin-top: 2rem;
+    background: var(--navy-light);
+    border-radius: 2px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fade-up .6s .9s ease forwards;
+}
+
+.loading-bar::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue-dim), var(--blue-light), var(--blue-dim));
+    animation: bar-slide 1.8s ease-in-out infinite;
+}
+
+/* ---- Exit ---- */
+.loading-screen.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ================================================================
+   Keyframes
+   ================================================================ */
+
+@keyframes logo-entrance {
+    0% {
+        opacity: 0;
+        transform: scale(.7) translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes logo-pulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 4px 24px rgba(74, 155, 217, .35));
+        transform: scale(1);
+    }
+
+    50% {
+        filter: drop-shadow(0 8px 36px rgba(74, 155, 217, .55));
+        transform: scale(1.04);
+    }
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+@keyframes bar-slide {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .loading-logo img {
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-logo img {
+        height: 60px;
+    }
+
+    .loading-tagline {
+        font-size: .75rem;
+    }
+}

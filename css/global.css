@@ -1,0 +1,261 @@
+/* ================================================================
+   ONE PIECE — Global Styles
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Custom Properties ---------- */
+:root {
+  /* One Piece Logo Palette */
+  --navy: #0c1a2e;
+  --navy-light: #11223b;
+  --navy-mid: #162d4a;
+  --blue: #4a9bd9;
+  --blue-light: #6db8f0;
+  --blue-dim: #2e6ea3;
+  --straw: #d4a84b;
+  --straw-light: #f0cc73;
+  --rope: #8b6914;
+  --crimson: #c0392b;
+  --crimson-light: #e74c3c;
+  --white: #f8f4ef;
+  --text: #dce6f0;
+  --text-muted: #7a8fa6;
+  --shadow: rgba(0, 0, 0, .5);
+  --frame-bg: #0e1e34;
+  --frame-size: 6px;
+  --navbar-h: 64px;
+  --transition: .3s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+  /* frame controls scroll */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ---------- Viewport Frame ---------- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  border: var(--frame-size) solid var(--frame-bg);
+  border-top: none;
+  /* navbar covers top */
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ---------- Scrollable Content Area ---------- */
+.content {
+  position: fixed;
+  top: calc(var(--navbar-h) + var(--frame-size));
+  left: var(--frame-size);
+  right: var(--frame-size);
+  bottom: var(--frame-size);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem 2.5rem 3rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-dim) var(--navy-light);
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--navy-light);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--blue-dim);
+  border-radius: 3px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  background: var(--frame-bg);
+  border-bottom: 1px solid rgba(74, 155, 217, .15);
+  z-index: 900;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar__logo img {
+  height: 38px;
+  width: auto;
+  filter: drop-shadow(0 2px 8px rgba(74, 155, 217, .3));
+  transition: filter var(--transition), transform var(--transition);
+}
+
+.navbar__logo img:hover {
+  filter: drop-shadow(0 2px 12px rgba(74, 155, 217, .5));
+  transform: scale(1.04);
+}
+
+.navbar__logo-placeholder {
+  /* removed - using image now */
+  display: none;
+}
+
+.navbar__logo::after {
+  content: none;
+  display: none;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue-dim), transparent);
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+
+.navbar__link {
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color var(--transition);
+  position: relative;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width var(--transition), left var(--transition);
+}
+
+.navbar__link:hover {
+  color: var(--blue);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.navbar__link.active {
+  color: var(--blue);
+}
+
+.navbar__link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ---------- Section Headers ---------- */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: .5rem;
+  letter-spacing: 2px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .95rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- Utility ---------- */
+.gold-divider {
+  width: 80px;
+  height: 2px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(90deg, transparent, var(--blue-dim), transparent);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  :root {
+    --frame-size: 5px;
+    --navbar-h: 56px;
+  }
+
+  .content {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .navbar__logo {
+    font-size: 1.2rem;
+  }
+
+  .navbar__menu {
+    gap: 1rem;
+  }
+
+  .navbar__link {
+    font-size: .75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --frame-size: 4px;
+    --navbar-h: 50px;
+  }
+
+  .content {
+    padding: 1rem .75rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .navbar__menu {
+    gap: .6rem;
+  }
+}
