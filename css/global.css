@@ -7,25 +7,27 @@
 /* ---------- Custom Properties ---------- */
 :root {
   /* One Piece Logo Palette */
-  --navy: #0c1a2e;
-  --navy-light: #11223b;
-  --navy-mid: #162d4a;
+  --navy: #080e1a;
+  --navy-light: #0f1a2e;
+  --navy-mid: #142240;
   --blue: #4a9bd9;
   --blue-light: #6db8f0;
   --blue-dim: #2e6ea3;
+  --blue-glow: rgba(74, 155, 217, .15);
   --straw: #d4a84b;
   --straw-light: #f0cc73;
   --rope: #8b6914;
   --crimson: #c0392b;
   --crimson-light: #e74c3c;
-  --white: #f8f4ef;
-  --text: #dce6f0;
-  --text-muted: #7a8fa6;
-  --shadow: rgba(0, 0, 0, .5);
-  --frame-bg: #0e1e34;
+  --white: #f0f4fa;
+  --text: #c8d6e8;
+  --text-muted: #5e7a9a;
+  --shadow: rgba(0, 0, 0, .6);
+  --frame-bg: #0a1424;
   --frame-size: 6px;
-  --navbar-h: 64px;
+  --navbar-h: 76px;
   --transition: .3s cubic-bezier(.4, 0, .2, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
 }
 
 /* ---------- Reset ---------- */
@@ -40,7 +42,6 @@
 html {
   scroll-behavior: smooth;
   overflow: hidden;
-  /* frame controls scroll */
 }
 
 body {
@@ -59,7 +60,6 @@ body::after {
   inset: 0;
   border: var(--frame-size) solid var(--frame-bg);
   border-top: none;
-  /* navbar covers top */
   pointer-events: none;
   z-index: 1000;
 }
@@ -67,23 +67,23 @@ body::after {
 /* ---------- Scrollable Content Area ---------- */
 .content {
   position: fixed;
-  top: calc(var(--navbar-h) + var(--frame-size));
+  top: var(--navbar-h);
   left: var(--frame-size);
   right: var(--frame-size);
   bottom: var(--frame-size);
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 2rem 2.5rem 3rem;
+  padding: 2.5rem 3rem 4rem;
   scrollbar-width: thin;
-  scrollbar-color: var(--blue-dim) var(--navy-light);
+  scrollbar-color: var(--blue-dim) transparent;
 }
 
 .content::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 .content::-webkit-scrollbar-track {
-  background: var(--navy-light);
+  background: transparent;
 }
 
 .content::-webkit-scrollbar-thumb {
@@ -91,7 +91,9 @@ body::after {
   border-radius: 3px;
 }
 
-/* ---------- Navbar ---------- */
+/* ================================================================
+   NAVBAR — Premium, with large centered logo
+   ================================================================ */
 .navbar {
   position: fixed;
   top: 0;
@@ -102,149 +104,106 @@ body::after {
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
-  background: var(--frame-bg);
-  border-bottom: 1px solid rgba(74, 155, 217, .15);
+  background: linear-gradient(180deg, var(--frame-bg) 0%, rgba(10, 20, 36, .95) 100%);
+  border-bottom: 1px solid rgba(74, 155, 217, .08);
   z-index: 900;
+}
+
+/* Subtle bottom glow line */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 155, 217, .25), var(--blue), rgba(74, 155, 217, .25), transparent);
+  opacity: .6;
 }
 
 .navbar__logo {
   display: flex;
   align-items: center;
   text-decoration: none;
-}
-
-.navbar__logo img {
-  height: 38px;
-  width: auto;
-  filter: drop-shadow(0 2px 8px rgba(74, 155, 217, .3));
-  transition: filter var(--transition), transform var(--transition);
-}
-
-.navbar__logo img:hover {
-  filter: drop-shadow(0 2px 12px rgba(74, 155, 217, .5));
-  transform: scale(1.04);
-}
-
-.navbar__logo-placeholder {
-  /* removed - using image now */
-  display: none;
-}
-
-.navbar__logo::after {
-  content: none;
-  display: none;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--blue-dim), transparent);
-}
-
-.navbar__menu {
-  display: flex;
-  gap: 1.8rem;
-  list-style: none;
-}
-
-.navbar__link {
-  font-size: .875rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: color var(--transition);
   position: relative;
 }
 
-.navbar__link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--blue);
-  transition: width var(--transition), left var(--transition);
+.navbar__logo img {
+  height: 52px;
+  width: auto;
+  filter: drop-shadow(0 2px 12px rgba(74, 155, 217, .25)) drop-shadow(0 0 30px rgba(74, 155, 217, .08));
+  transition: filter .4s ease, transform .4s var(--ease-out);
 }
 
-.navbar__link:hover {
-  color: var(--blue);
-}
-
-.navbar__link:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-.navbar__link.active {
-  color: var(--blue);
-}
-
-.navbar__link.active::after {
-  width: 100%;
-  left: 0;
+.navbar__logo:hover img {
+  filter: drop-shadow(0 4px 20px rgba(74, 155, 217, .4)) drop-shadow(0 0 40px rgba(74, 155, 217, .15));
+  transform: scale(1.06);
 }
 
 /* ---------- Section Headers ---------- */
 .section-title {
   font-family: 'Cinzel', serif;
   font-weight: 700;
-  font-size: 2rem;
-  color: var(--blue);
+  font-size: 2.2rem;
+  color: var(--white);
   text-align: center;
-  margin-bottom: .5rem;
+  margin-bottom: .4rem;
   letter-spacing: 2px;
 }
 
 .section-subtitle {
   text-align: center;
   color: var(--text-muted);
-  font-size: .95rem;
+  font-size: .9rem;
   margin-bottom: 2.5rem;
+  letter-spacing: .5px;
 }
 
-/* ---------- Utility ---------- */
+/* ---------- Decorative Divider ---------- */
 .gold-divider {
-  width: 80px;
+  width: 60px;
   height: 2px;
-  margin: 0 auto 2rem;
-  background: linear-gradient(90deg, transparent, var(--blue-dim), transparent);
+  margin: 0 auto 2.5rem;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  position: relative;
+}
+
+.gold-divider::after {
+  content: '⚓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: .7rem;
+  color: var(--blue);
+  background: var(--navy);
+  padding: 0 .6rem;
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   :root {
-    --frame-size: 5px;
-    --navbar-h: 56px;
+    --frame-size: 4px;
+    --navbar-h: 64px;
   }
 
   .content {
     padding: 1.5rem 1rem 2rem;
   }
 
-  .navbar {
-    padding: 0 1rem;
+  .navbar__logo img {
+    height: 42px;
   }
 
-  .navbar__logo {
-    font-size: 1.2rem;
-  }
-
-  .navbar__menu {
-    gap: 1rem;
-  }
-
-  .navbar__link {
-    font-size: .75rem;
+  .section-title {
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --frame-size: 4px;
-    --navbar-h: 50px;
+    --frame-size: 3px;
+    --navbar-h: 56px;
   }
 
   .content {
@@ -252,10 +211,10 @@ body::after {
   }
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
-  .navbar__menu {
-    gap: .6rem;
+  .navbar__logo img {
+    height: 36px;
   }
 }

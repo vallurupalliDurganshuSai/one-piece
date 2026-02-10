@@ -1,5 +1,5 @@
 /* ================================================================
-   ONE PIECE — Character Detail Modal
+   ONE PIECE — Character Detail Modal (Slide-In Panel)
    ================================================================ */
 
 /* ---------- Backdrop ---------- */
@@ -7,9 +7,9 @@
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background: rgba(5, 10, 20, .7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(4, 8, 16, .75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     opacity: 0;
     visibility: hidden;
     transition: opacity .4s ease, visibility .4s ease;
@@ -25,18 +25,18 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 420px;
-    max-width: 90vw;
+    width: 430px;
+    max-width: 92vw;
     height: 100vh;
     z-index: 2001;
-    background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
-    border-left: 1px solid rgba(74, 155, 217, .15);
-    box-shadow: -8px 0 40px rgba(0, 0, 0, .5);
+    background: linear-gradient(180deg, #111e36 0%, var(--navy) 100%);
+    border-left: 1px solid rgba(74, 155, 217, .1);
+    box-shadow: -12px 0 60px rgba(0, 0, 0, .6);
     transform: translateX(100%);
-    transition: transform .45s cubic-bezier(.16, 1, .3, 1);
+    transition: transform .5s var(--ease-out);
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: var(--blue-dim) var(--navy);
+    scrollbar-color: var(--blue-dim) transparent;
 }
 
 .modal-panel.active {
@@ -46,35 +46,38 @@
 /* ---------- Close Button ---------- */
 .modal-close {
     position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    width: 36px;
-    height: 36px;
+    top: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    border: 1px solid rgba(74, 155, 217, .2);
-    background: rgba(10, 22, 40, .6);
-    color: var(--blue);
-    font-size: 1.1rem;
+    border: 1px solid rgba(74, 155, 217, .15);
+    background: rgba(8, 14, 26, .7);
+    backdrop-filter: blur(8px);
+    color: var(--text-muted);
+    font-size: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background var(--transition), transform var(--transition);
+    transition: all .3s ease;
     z-index: 10;
 }
 
 .modal-close:hover {
-    background: rgba(74, 155, 217, .15);
+    background: rgba(74, 155, 217, .12);
+    color: var(--blue);
     transform: rotate(90deg);
+    border-color: rgba(74, 155, 217, .3);
 }
 
-/* ---------- Character Image ---------- */
+/* ---------- Character Image Area ---------- */
 .modal-image-wrap {
     width: 100%;
-    height: 280px;
+    height: 260px;
     overflow: hidden;
     position: relative;
-    background: var(--navy-light);
+    background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%);
 }
 
 .modal-image-wrap::after {
@@ -83,8 +86,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 80px;
-    background: linear-gradient(transparent, var(--navy-mid));
+    height: 100px;
+    background: linear-gradient(transparent, #111e36);
 }
 
 .modal-image {
@@ -94,7 +97,7 @@
     object-position: top center;
 }
 
-/* Placeholder if no image */
+/* Placeholder */
 .modal-image-placeholder {
     width: 100%;
     height: 100%;
@@ -104,43 +107,58 @@
     font-family: 'Cinzel', serif;
     font-size: 4rem;
     font-weight: 900;
-    color: var(--blue-dim);
-    background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+    color: rgba(74, 155, 217, .15);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    position: relative;
 }
 
-/* ---------- Character Info ---------- */
+/* Decorative circle behind initial */
+.modal-image-placeholder::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(74, 155, 217, .08);
+}
+
+/* ---------- Modal Body ---------- */
 .modal-body {
-    padding: 1.5rem 2rem 2rem;
+    padding: 1.5rem 2rem 2.5rem;
 }
 
 .modal-name {
     font-family: 'Cinzel', serif;
     font-weight: 900;
-    font-size: 1.6rem;
-    color: var(--straw);
+    font-size: 1.7rem;
+    background: linear-gradient(135deg, var(--straw-light) 0%, var(--straw) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: .3rem;
 }
 
 .modal-role {
-    font-size: .85rem;
+    font-size: .8rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.4rem;
 }
 
 .modal-divider {
-    width: 50px;
+    width: 40px;
     height: 2px;
     background: linear-gradient(90deg, var(--blue), transparent);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
+    border-radius: 1px;
 }
 
-/* Stat rows */
+/* ---------- Stats ---------- */
 .modal-stats {
     display: flex;
     flex-direction: column;
-    gap: .8rem;
+    gap: .7rem;
     margin-bottom: 1.5rem;
 }
 
@@ -148,29 +166,33 @@
     display: flex;
     align-items: center;
     gap: .8rem;
-    padding: .7rem 1rem;
-    border-radius: 8px;
+    padding: .8rem 1rem;
+    border-radius: 10px;
     background: rgba(74, 155, 217, .04);
-    border: 1px solid rgba(74, 155, 217, .08);
+    border: 1px solid rgba(74, 155, 217, .06);
+    transition: border-color var(--transition);
+}
+
+.modal-stat:hover {
+    border-color: rgba(74, 155, 217, .15);
 }
 
 .modal-stat__icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: .85rem;
-    background: rgba(74, 155, 217, .1);
-    color: var(--blue);
+    font-size: .9rem;
+    background: rgba(74, 155, 217, .08);
     flex-shrink: 0;
 }
 
 .modal-stat__label {
-    font-size: .7rem;
+    font-size: .65rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     color: var(--text-muted);
 }
 
@@ -178,13 +200,14 @@
     font-weight: 600;
     font-size: .95rem;
     color: var(--white);
+    letter-spacing: .3px;
 }
 
-/* Description */
+/* ---------- Description ---------- */
 .modal-desc {
     color: var(--text);
-    font-size: .9rem;
-    line-height: 1.7;
+    font-size: .88rem;
+    line-height: 1.8;
 }
 
 /* ---------- Responsive ---------- */
@@ -195,7 +218,7 @@
     }
 
     .modal-image-wrap {
-        height: 220px;
+        height: 200px;
     }
 
     .modal-body {
