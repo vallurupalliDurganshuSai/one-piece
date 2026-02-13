@@ -11,7 +11,7 @@ const ARC_DATA = [
     gradient: 'linear-gradient(135deg, #1a3a5c, #0d1b2a)',
     image: 'images/img.png',
     characters: [
-      { name: 'Monkey D. Luffy', role: 'Captain • Straw Hat Pirates', bounty: '₿3,000,000,000', desc: 'The rubber-powered dreamer who will become King of the Pirates. His unwavering determination and infectious spirit draw allies to his cause.', initial: 'L', image: 'images/img.png' },
+      { name: 'Monkey D. Luffy', role: 'Captain • Straw Hat Pirates', bounty: '₿3,000,000,000', desc: 'The rubber-powered dreamer who will become King of the Pirates. His unwavering determination and infectious spirit draw allies to his cause.', initial: 'L', image: 'images/luffy.jpg' },
       { name: 'Roronoa Zoro', role: 'Swordsman • First Mate', bounty: '₿1,111,000,000', desc: 'A three-sword-style master with an unyielding ambition to become the world\'s greatest swordsman. Luffy\'s first crewmate.', initial: 'Z', image: 'images/img.png' },
       { name: 'Nami', role: 'Navigator', bounty: '₿366,000,000', desc: 'A genius cartographer and thief with a dream to chart the entire world. Her mastery over weather makes her invaluable.', initial: 'N', image: 'images/img.png' },
       { name: 'Usopp', role: 'Sniper', bounty: '₿500,000,000', desc: 'The brave warrior of the sea — or so he claims. A gifted marksman and inventor whose lies have a way of coming true.', initial: 'U', image: 'images/img.png' },
