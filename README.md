@@ -2,7 +2,7 @@
 
 A premium, interactive web application to explore iconic One Piece story arcs and their legendary characters.
 
-![One Piece Explorer](images/logo.png)
+![One Piece Explorer](images/logo.png) **https://one-piece-about.vercel.app/** 
 
 ## Features
 
