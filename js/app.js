@@ -41,11 +41,11 @@ const ARC_DATA = [
     gradient: 'linear-gradient(135deg, #4a90d9, #1a3a6c)',
     image: 'images/skypiea.jpg',
     characters: [
-      { name: 'Enel', role: 'God of Skypiea', bounty: '₿500,000,000 (est.)', desc: 'A tyrannical ruler wielding the power of lightning. Considers himself an almighty god destined to reach the moon.', initial: 'E', image: 'images/img.png' },
-      { name: 'Wyper', role: 'Shandian Warrior', bounty: 'None', desc: 'A fierce Shandian warrior determined to reclaim his ancestral homeland. Carries the will of the great warrior Kalgara.', initial: 'W', image: 'images/img.png' },
-      { name: 'Gan Fall', role: 'Former God of Skypiea', bounty: 'None', desc: 'The benevolent former ruler of Skypiea who rides a pegasus named Pierre. Fights to liberate his homeland.', initial: 'G', image: 'images/img.png' },
-      { name: 'Conis', role: 'Skypiean Citizen', bounty: 'None', desc: 'A kind-hearted sky islander who befriends the Straw Hats and risks everything to oppose Enel\'s tyranny.', initial: 'Co', image: 'images/img.png' },
-      { name: 'Mont Blanc Noland', role: 'Explorer (Flashback)', bounty: 'None (Executed)', desc: 'The legendary explorer branded a liar for telling of a city of gold. His tale spans 400 years of sorrow.', initial: 'MN', image: 'images/img.png' }
+      { name: 'Enel', role: 'God of Skypiea', bounty: '₿500,000,000 (est.)', desc: 'A tyrannical ruler wielding the power of lightning. Considers himself an almighty god destined to reach the moon.', initial: 'E', image: 'images/enel.jpg' },
+      { name: 'Wyper', role: 'Shandian Warrior', bounty: 'None', desc: 'A fierce Shandian warrior determined to reclaim his ancestral homeland. Carries the will of the great warrior Kalgara.', initial: 'W', image: 'images/wyper.jpg' },
+      { name: 'Gan Fall', role: 'Former God of Skypiea', bounty: 'None', desc: 'The benevolent former ruler of Skypiea who rides a pegasus named Pierre. Fights to liberate his homeland.', initial: 'G', image: 'images/fall.jpg' },
+      { name: 'Conis', role: 'Skypiean Citizen', bounty: 'None', desc: 'A kind-hearted sky islander who befriends the Straw Hats and risks everything to oppose Enel\'s tyranny.', initial: 'Co', image: 'images/conis.jpg' },
+      { name: 'Mont Blanc Noland', role: 'Explorer (Flashback)', bounty: 'None (Executed)', desc: 'The legendary explorer branded a liar for telling of a city of gold. His tale spans 400 years of sorrow.', initial: 'MN', image: 'images/noland.jpg' }
     ]
   },
   {
@@ -58,9 +58,9 @@ const ARC_DATA = [
     characters: [
       { name: 'Franky', role: 'Shipwright • Cyborg', bounty: '₿394,000,000', desc: 'A cola-powered cyborg shipwright who built the Thousand Sunny. His dream is to sail aboard a ship that conquers the seas.', initial: 'F', image: 'images/franky.jpg' },
       { name: 'Rob Lucci', role: 'CP9 Agent', bounty: 'Classified', desc: 'The deadliest assassin of Cipher Pol 9 with mastery over Rokushiki and a leopard Zoan fruit. A cold-blooded killing machine.', initial: 'RL', image: 'images/rob.jpg' },
-      { name: 'Iceburg', role: 'Mayor of Water 7', bounty: 'None', desc: 'The president of the Galley-La Company and mayor of Water 7. A former apprentice of the legendary shipwright Tom.', initial: 'I', image: 'images/img.png' },
+      { name: 'Iceburg', role: 'Mayor of Water 7', bounty: 'None', desc: 'The president of the Galley-La Company and mayor of Water 7. A former apprentice of the legendary shipwright Tom.', initial: 'I', image: 'images/ice.jpg' },
       { name: 'Spandam', role: 'CP9 Chief', bounty: 'None (Government)', desc: 'The incompetent head of CP9 whose obsession with ancient weapons leads to the Buster Call on Enies Lobby.', initial: 'Sp', image: 'images/img.png' },
-      { name: 'Kaku', role: 'CP9 Agent • Swordsman', bounty: 'Classified', desc: 'A skilled swordsman and CP9 agent who consumed the Giraffe Zoan fruit. Expert in Rokushiki techniques.', initial: 'K', image: 'images/img.png' }
+      { name: 'Kaku', role: 'CP9 Agent • Swordsman', bounty: 'Classified', desc: 'A skilled swordsman and CP9 agent who consumed the Giraffe Zoan fruit. Expert in Rokushiki techniques.', initial: 'K', image: 'images/kaku.jpg' }
     ]
   },
   {
@@ -72,10 +72,10 @@ const ARC_DATA = [
     image: 'images/thriller.jpg',
     characters: [
       { name: 'Brook', role: 'Musician • Soul King', bounty: '₿383,000,000', desc: 'A living skeleton revived by the Revive-Revive Fruit. A soulful musician carrying a promise made 50 years ago.', initial: 'B', image: 'images/brook.jpg' },
-      { name: 'Gecko Moria', role: 'Warlord of the Sea', bounty: '₿320,000,000', desc: 'A former Warlord who commands shadows. Once rivaled Kaido and now rules Thriller Bark with an army of zombies.', initial: 'GM', image: 'images/img.png' },
-      { name: 'Perona', role: 'Ghost Princess', bounty: 'Unknown', desc: 'Moria\'s commander who uses Hollow-Hollow Fruit to project ghosts that drain all will to live from her enemies.', initial: 'P', image: 'images/img.png' },
+      { name: 'Gecko Moria', role: 'Warlord of the Sea', bounty: '₿320,000,000', desc: 'A former Warlord who commands shadows. Once rivaled Kaido and now rules Thriller Bark with an army of zombies.', initial: 'GM', image: 'images/gecko.jpg' },
+      { name: 'Perona', role: 'Ghost Princess', bounty: 'Unknown', desc: 'Moria\'s commander who uses Hollow-Hollow Fruit to project ghosts that drain all will to live from her enemies.', initial: 'P', image: 'images/per.jpg' },
       { name: 'Absalom', role: 'Zombie General', bounty: 'Unknown', desc: 'A stitched-together general with invisibility powers from the Clear-Clear Fruit. Commands the zombie soldiers.', initial: 'Ab', image: 'images/img.png' },
-      { name: 'Oars', role: 'Special Zombie', bounty: 'None (Zombie)', desc: 'A massive ancient giant zombie brought to life with Luffy\'s shadow. The "Continent Puller" is Moria\'s ultimate weapon.', initial: 'O', image: 'images/img.png' }
+      { name: 'Oars', role: 'Special Zombie', bounty: 'None (Zombie)', desc: 'A massive ancient giant zombie brought to life with Luffy\'s shadow. The "Continent Puller" is Moria\'s ultimate weapon.', initial: 'O', image: 'images/oar.jpg' }
     ]
   },
   {
@@ -87,10 +87,10 @@ const ARC_DATA = [
     gradient: 'linear-gradient(135deg, #1a1a2e, #780000)',
     image: 'images/marine.jpg',
     characters: [
-      { name: 'Edward Newgate', role: 'Whitebeard • Yonko', bounty: '₿5,046,000,000', desc: 'The strongest man in the world and "father" to thousands. He who stood at the pinnacle of the pirate era.', initial: 'WB', image: 'images/img.png' },
-      { name: 'Akainu', role: 'Admiral • Magma', bounty: 'None (Marine)', desc: 'Fleet Admiral Sakazuki — the embodiment of Absolute Justice. His magma fists changed the tide of the war.', initial: 'Ak', image: 'images/img.png' },
+      { name: 'Edward Newgate', role: 'Whitebeard • Yonko', bounty: '₿5,046,000,000', desc: 'The strongest man in the world and "father" to thousands. He who stood at the pinnacle of the pirate era.', initial: 'WB', image: 'images/newgate.jpg' },
+      { name: 'Akainu', role: 'Admiral • Magma', bounty: 'None (Marine)', desc: 'Fleet Admiral Sakazuki — the embodiment of Absolute Justice. His magma fists changed the tide of the war.', initial: 'Ak', image: 'images/akainu.jpg' },
       { name: 'Sengoku', role: 'Fleet Admiral • Buddha', bounty: 'None (Marine)', desc: 'The Buddha — strategic mastermind of the Marines who orchestrated the public execution to lure Whitebeard.', initial: 'Se', image: 'images/img.png' },
-      { name: 'Jinbe', role: 'Helmsman • Fish-Man', bounty: '₿1,100,000,000', desc: 'A Fish-Man Karate master and former Warlord. His honor and loyalty make him one of the most respected figures on the seas.', initial: 'J', image: 'images/img.png' },
+      { name: 'Jinbe', role: 'Helmsman • Fish-Man', bounty: '₿1,100,000,000', desc: 'A Fish-Man Karate master and former Warlord. His honor and loyalty make him one of the most respected figures on the seas.', initial: 'J', image: 'images/jin.jpg' },
       { name: 'Boa Hancock', role: 'Warlord • Pirate Empress', bounty: '₿1,659,000,000', desc: 'The most beautiful woman in the world and wielder of the Love-Love Fruit. Empress of Amazon Lily.', initial: 'H', image: 'images/boa.jpg' }
     ]
   },
