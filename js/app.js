@@ -89,7 +89,7 @@ const ARC_DATA = [
     characters: [
       { name: 'Edward Newgate', role: 'Whitebeard • Yonko', bounty: '₿5,046,000,000', desc: 'The strongest man in the world and "father" to thousands. He who stood at the pinnacle of the pirate era.', initial: 'WB', image: 'images/newgate.jpg' },
       { name: 'Akainu', role: 'Admiral • Magma', bounty: 'None (Marine)', desc: 'Fleet Admiral Sakazuki — the embodiment of Absolute Justice. His magma fists changed the tide of the war.', initial: 'Ak', image: 'images/akainu.jpg' },
-      { name: 'Sengoku', role: 'Fleet Admiral • Buddha', bounty: 'None (Marine)', desc: 'The Buddha — strategic mastermind of the Marines who orchestrated the public execution to lure Whitebeard.', initial: 'Se', image: 'images/img.png' },
+      { name: 'Sengoku', role: 'Fleet Admiral • Buddha', bounty: 'None (Marine)', desc: 'The Buddha — strategic mastermind of the Marines who orchestrated the public execution to lure Whitebeard.', initial: 'Se', image: 'images/goku.jpg' },
       { name: 'Jinbe', role: 'Helmsman • Fish-Man', bounty: '₿1,100,000,000', desc: 'A Fish-Man Karate master and former Warlord. His honor and loyalty make him one of the most respected figures on the seas.', initial: 'J', image: 'images/jin.jpg' },
       { name: 'Boa Hancock', role: 'Warlord • Pirate Empress', bounty: '₿1,659,000,000', desc: 'The most beautiful woman in the world and wielder of the Love-Love Fruit. Empress of Amazon Lily.', initial: 'H', image: 'images/boa.jpg' }
     ]
@@ -102,11 +102,11 @@ const ARC_DATA = [
     gradient: 'linear-gradient(135deg, #0077b6, #023e5c)',
     image: 'images/fish.jpg',
     characters: [
-      { name: 'Hody Jones', role: 'New Fish-Man Pirates Captain', bounty: 'Unknown', desc: 'A great white shark Fish-Man driven by hatred for humans. He uses Energy Steroids to fuel his campaign of terror.', initial: 'HJ', image: 'images/img.png' },
-      { name: 'Shirahoshi', role: 'Mermaid Princess', bounty: 'None', desc: 'The giant mermaid princess with the power of Poseidon — the ability to command the Sea Kings. A gentle soul.', initial: 'Sh', image: 'images/img.png' },
-      { name: 'Fisher Tiger', role: 'Adventurer (Flashback)', bounty: '₿230,000,000', desc: 'The legendary Sun Pirates captain who climbed the Red Line bare-handed to free slaves from the World Nobles.', initial: 'FT', image: 'images/img.png' },
-      { name: 'Queen Otohime', role: 'Queen (Flashback)', bounty: 'None', desc: 'The beloved queen who championed coexistence between humans and Fish-Men through peaceful petition.', initial: 'Ot', image: 'images/img.png' },
-      { name: 'Neptune', role: 'King of Fish-Man Island', bounty: 'None', desc: 'The coelacanth merman who rules the Ryugu Kingdom. A powerful warrior and devoted father protecting his people.', initial: 'Np', image: 'images/img.png' }
+      { name: 'Hody Jones', role: 'New Fish-Man Pirates Captain', bounty: 'Unknown', desc: 'A great white shark Fish-Man driven by hatred for humans. He uses Energy Steroids to fuel his campaign of terror.', initial: 'HJ', image: 'images/hody.jpg' },
+      { name: 'Shirahoshi', role: 'Mermaid Princess', bounty: 'None', desc: 'The giant mermaid princess with the power of Poseidon — the ability to command the Sea Kings. A gentle soul.', initial: 'Sh', image: 'images/shi.jpg' },
+      { name: 'Fisher Tiger', role: 'Adventurer (Flashback)', bounty: '₿230,000,000', desc: 'The legendary Sun Pirates captain who climbed the Red Line bare-handed to free slaves from the World Nobles.', initial: 'FT', image: 'images/ft.jpg' },
+      { name: 'Queen Otohime', role: 'Queen (Flashback)', bounty: 'None', desc: 'The beloved queen who championed coexistence between humans and Fish-Men through peaceful petition.', initial: 'Ot', image: 'images/otohi.jpg' },
+      { name: 'Neptune', role: 'King of Fish-Man Island', bounty: 'None', desc: 'The coelacanth merman who rules the Ryugu Kingdom. A powerful warrior and devoted father protecting his people.', initial: 'Np', image: 'images/nep.jpg' }
     ]
   },
   {
@@ -117,11 +117,11 @@ const ARC_DATA = [
     gradient: 'linear-gradient(135deg, #e63946, #4a0d17)',
     image: 'images/dress.jpg',
     characters: [
-      { name: 'Donquixote Doflamingo', role: 'Warlord • Heavenly Demon', bounty: '₿340,000,000', desc: 'The Heavenly Demon — a fallen Celestial Dragon who rules Dressrosa with string powers and an iron grip.', initial: 'Do', image: 'images/img.png' },
-      { name: 'Trafalgar D. Law', role: 'Surgeon of Death', bounty: '₿3,000,000,000', desc: 'The "Surgeon of Death" wielding the Op-Op Fruit. His alliance with Luffy aims to topple the Emperor Kaido.', initial: 'TL', image: 'images/img.png' },
-      { name: 'Rebecca', role: 'Gladiator Princess', bounty: 'None', desc: 'The undefeated gladiator of the Corrida Colosseum. She fights with a defensive style to protect without killing.', initial: 'Re', image: 'images/img.png' },
-      { name: 'Sabo', role: 'Chief of Staff • Revolutionary', bounty: '₿602,000,000', desc: 'Luffy\'s sworn brother, thought to be dead. Inheritor of Ace\'s Flame-Flame Fruit and the No. 2 of the Revolutionary Army.', initial: 'Sa', image: 'images/img.png' },
-      { name: 'Kyros', role: 'Legendary Gladiator', bounty: 'None', desc: 'The undefeated gladiator turned tin soldier. A one-legged warrior whose 3,000-win record was erased from history.', initial: 'Ky', image: 'images/img.png' }
+      { name: 'Donquixote Doflamingo', role: 'Warlord • Heavenly Demon', bounty: '₿340,000,000', desc: 'The Heavenly Demon — a fallen Celestial Dragon who rules Dressrosa with string powers and an iron grip.', initial: 'Do', image: 'images/dd.jpg' },
+      { name: 'Trafalgar D. Law', role: 'Surgeon of Death', bounty: '₿3,000,000,000', desc: 'The "Surgeon of Death" wielding the Op-Op Fruit. His alliance with Luffy aims to topple the Emperor Kaido.', initial: 'TL', image: 'images/law.jpg' },
+      { name: 'Rebecca', role: 'Gladiator Princess', bounty: 'None', desc: 'The undefeated gladiator of the Corrida Colosseum. She fights with a defensive style to protect without killing.', initial: 'Re', image: 'images/reb.jpg' },
+      { name: 'Sabo', role: 'Chief of Staff • Revolutionary', bounty: '₿602,000,000', desc: 'Luffy\'s sworn brother, thought to be dead. Inheritor of Ace\'s Flame-Flame Fruit and the No. 2 of the Revolutionary Army.', initial: 'Sa', image: 'images/sabo.jpg' },
+      { name: 'Kyros', role: 'Legendary Gladiator', bounty: 'None', desc: 'The undefeated gladiator turned tin soldier. A one-legged warrior whose 3,000-win record was erased from history.', initial: 'Ky', image: 'images/kyros.jpg' }
     ]
   },
   {
@@ -132,11 +132,11 @@ const ARC_DATA = [
     gradient: 'linear-gradient(135deg, #d63384, #4a1038)',
     image: 'images/cake.jpg',
     characters: [
-      { name: 'Big Mom', role: 'Yonko • Charlotte Linlin', bounty: '₿4,388,000,000', desc: 'The iron-willed matriarch of the Charlotte Family. Her Soul-Soul Fruit powers create a living nightmare of homies.', initial: 'BM', image: 'images/img.png' },
-      { name: 'Katakuri', role: 'Sweet Commander', bounty: '₿1,057,000,000', desc: 'Big Mom\'s strongest son with advanced Observation Haki. His mochi powers and honor make him Luffy\'s greatest rival.', initial: 'Ka', image: 'images/img.png' },
-      { name: 'Charlotte Pudding', role: 'Three-Eyed Tribe', bounty: 'Unknown', desc: 'A three-eyed girl torn between her mother\'s cruelty and her own kindness. Her true feelings for Sanji define her arc.', initial: 'Pu', image: 'images/img.png' },
-      { name: 'Pedro', role: 'Guardian • Mink Warrior', bounty: '₿382,000,000', desc: 'A jaguar mink and Mokomo Dukedom\'s guardian. His sacrifice lit the fuse for the crew\'s daring escape.', initial: 'Pe', image: 'images/img.png' },
-      { name: 'Vinsmoke Judge', role: 'Germa 66 Commander', bounty: 'Unknown', desc: 'The ruthless king of the Germa Kingdom and leader of Germa 66. A scientist who turned his own children into weapons.', initial: 'VJ', image: 'images/img.png' }
+      { name: 'Big Mom', role: 'Yonko • Charlotte Linlin', bounty: '₿4,388,000,000', desc: 'The iron-willed matriarch of the Charlotte Family. Her Soul-Soul Fruit powers create a living nightmare of homies.', initial: 'BM', image: 'images/bigmom.jpg' },
+      { name: 'Katakuri', role: 'Sweet Commander', bounty: '₿1,057,000,000', desc: 'Big Mom\'s strongest son with advanced Observation Haki. His mochi powers and honor make him Luffy\'s greatest rival.', initial: 'Ka', image: 'images/kata.jpg' },
+      { name: 'Charlotte Pudding', role: 'Three-Eyed Tribe', bounty: 'Unknown', desc: 'A three-eyed girl torn between her mother\'s cruelty and her own kindness. Her true feelings for Sanji define her arc.', initial: 'Pu', image: 'images/cp.jpg' },
+      { name: 'Pedro', role: 'Guardian • Mink Warrior', bounty: '₿382,000,000', desc: 'A jaguar mink and Mokomo Dukedom\'s guardian. His sacrifice lit the fuse for the crew\'s daring escape.', initial: 'Pe', image: 'images/pedro.jpg' },
+      { name: 'Vinsmoke Judge', role: 'Germa 66 Commander', bounty: 'Unknown', desc: 'The ruthless king of the Germa Kingdom and leader of Germa 66. A scientist who turned his own children into weapons.', initial: 'VJ', image: 'images/vin.jpg' }
     ]
   },
   {
@@ -147,11 +147,11 @@ const ARC_DATA = [
     gradient: 'linear-gradient(135deg, #6d28d9, #1a0a3e)',
     image: 'images/wano.jpg',
     characters: [
-      { name: 'Kaido', role: 'Yonko • King of Beasts', bounty: '₿4,611,100,000', desc: 'The world\'s strongest creature in the form of a mythical dragon. An indestructible force who seeks the ultimate war.', initial: 'Ka', image: 'images/img.png' },
-      { name: 'Yamato', role: 'Oni Princess', bounty: 'Unknown', desc: 'Kaido\'s daughter who idolizes Kozuki Oden. She has awaited the one Oden prophesied for twenty long years.', initial: 'Y', image: 'images/img.png' },
-      { name: 'Kozuki Oden', role: 'Daimyo • Samurai Legend', bounty: 'Unknown', desc: 'The legendary samurai who sailed with both Roger and Whitebeard. His sacrifice ignited the flame of Wano\'s liberation.', initial: 'Od', image: 'images/img.png' },
-      { name: 'Kinemon', role: 'Samurai • Leader of Scabbards', bounty: 'Unknown', desc: 'Leader of the Nine Red Scabbards, loyal retainers of Oden. He traveled through time to gather allies for the raid.', initial: 'Ki', image: 'images/img.png' },
-      { name: 'Momonosuke', role: 'Shogun of Wano', bounty: 'Unknown', desc: 'Son of Oden, sent 20 years into the future. A young dragon who must grow into the leader Wano needs.', initial: 'Mo', image: 'images/img.png' }
+      { name: 'Kaido', role: 'Yonko • King of Beasts', bounty: '₿4,611,100,000', desc: 'The world\'s strongest creature in the form of a mythical dragon. An indestructible force who seeks the ultimate war.', initial: 'Ka', image: 'images/kaido.jpg' },
+      { name: 'Yamato', role: 'Oni Princess', bounty: 'Unknown', desc: 'Kaido\'s daughter who idolizes Kozuki Oden. She has awaited the one Oden prophesied for twenty long years.', initial: 'Y', image: 'images/yam.jpg' },
+      { name: 'Kozuki Oden', role: 'Daimyo • Samurai Legend', bounty: 'Unknown', desc: 'The legendary samurai who sailed with both Roger and Whitebeard. His sacrifice ignited the flame of Wano\'s liberation.', initial: 'Od', image: 'images/oden.jpg' },
+      { name: 'Kinemon', role: 'Samurai • Leader of Scabbards', bounty: 'Unknown', desc: 'Leader of the Nine Red Scabbards, loyal retainers of Oden. He traveled through time to gather allies for the raid.', initial: 'Ki', image: 'images/kine.jpg' },
+      { name: 'Momonosuke', role: 'Shogun of Wano', bounty: 'Unknown', desc: 'Son of Oden, sent 20 years into the future. A young dragon who must grow into the leader Wano needs.', initial: 'Mo', image: 'images/momo.jpg' }
     ]
   }
 ];
