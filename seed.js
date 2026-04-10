@@ -36,6 +36,51 @@ const ARC_DATA = [
     ]
   },
   {
+    id: 'skypiea',
+    title: 'Skypiea',
+    saga: 'Sky Island Saga',
+    desc: 'An island in the clouds where a self-proclaimed god rules with thunder.',
+    gradient: 'linear-gradient(135deg, #4a90d9, #1a3a6c)',
+    image: 'images/skypiea.jpg',
+    characters: [
+      { name: 'Enel', role: 'God of Skypiea', bounty: '₿500,000,000 (est.)', desc: 'A tyrannical ruler wielding the power of lightning. Considers himself an almighty god destined to reach the moon.', initial: 'E', image: 'images/enel.jpg' },
+      { name: 'Wyper', role: 'Shandian Warrior', bounty: 'None', desc: 'A fierce Shandian warrior determined to reclaim his ancestral homeland. Carries the will of the great warrior Kalgara.', initial: 'W', image: 'images/wyper.jpg' },
+      { name: 'Gan Fall', role: 'Former God of Skypiea', bounty: 'None', desc: 'The benevolent former ruler of Skypiea who rides a pegasus named Pierre. Fights to liberate his homeland.', initial: 'G', image: 'images/fall.jpg' },
+      { name: 'Conis', role: 'Skypiean Citizen', bounty: 'None', desc: 'A kind-hearted sky islander who befriends the Straw Hats and risks everything to oppose Enel\'s tyranny.', initial: 'Co', image: 'images/conis.jpg' },
+      { name: 'Mont Blanc Noland', role: 'Explorer (Flashback)', bounty: 'None (Executed)', desc: 'The legendary explorer branded a liar for telling of a city of gold. His tale spans 400 years of sorrow.', initial: 'MN', image: 'images/noland.jpg' }
+    ]
+  },
+  {
+    id: 'enies-lobby',
+    title: 'Enies Lobby',
+    saga: 'Water 7 Saga',
+    desc: 'The Straw Hats declare war on the World Government to save a friend.',
+    gradient: 'linear-gradient(135deg, #c0392b, #5a1a14)',
+    image: 'images/enies.jpg',
+    characters: [
+      { name: 'Franky', role: 'Shipwright • Cyborg', bounty: '₿394,000,000', desc: 'A cola-powered cyborg shipwright who built the Thousand Sunny. His dream is to sail aboard a ship that conquers the seas.', initial: 'F', image: 'images/franky.jpg' },
+      { name: 'Rob Lucci', role: 'CP9 Agent', bounty: 'Classified', desc: 'The deadliest assassin of Cipher Pol 9 with mastery over Rokushiki and a leopard Zoan fruit. A cold-blooded killing machine.', initial: 'RL', image: 'images/rob.jpg' },
+      { name: 'Iceburg', role: 'Mayor of Water 7', bounty: 'None', desc: 'The president of the Galley-La Company and mayor of Water 7. A former apprentice of the legendary shipwright Tom.', initial: 'I', image: 'images/ice.jpg' },
+      { name: 'Spandam', role: 'CP9 Chief', bounty: 'None (Government)', desc: 'The incompetent head of CP9 whose obsession with ancient weapons leads to the Buster Call on Enies Lobby.', initial: 'Sp', image: 'images/img.png' },
+      { name: 'Kaku', role: 'CP9 Agent • Swordsman', bounty: 'Classified', desc: 'A skilled swordsman and CP9 agent who consumed the Giraffe Zoan fruit. Expert in Rokushiki techniques.', initial: 'K', image: 'images/kaku.jpg' }
+    ]
+  },
+  {
+    id: 'thriller-bark',
+    title: 'Thriller Bark',
+    saga: 'Thriller Bark Saga',
+    desc: 'A haunted ship the size of an island — where shadows come alive.',
+    gradient: 'linear-gradient(135deg, #2c1445, #0d0517)',
+    image: 'images/thriller.jpg',
+    characters: [
+      { name: 'Brook', role: 'Musician • Soul King', bounty: '₿383,000,000', desc: 'A living skeleton revived by the Revive-Revive Fruit. A soulful musician carrying a promise made 50 years ago.', initial: 'B', image: 'images/brook.jpg' },
+      { name: 'Gecko Moria', role: 'Warlord of the Sea', bounty: '₿320,000,000', desc: 'A former Warlord who commands shadows. Once rivaled Kaido and now rules Thriller Bark with an army of zombies.', initial: 'GM', image: 'images/gecko.jpg' },
+      { name: 'Perona', role: 'Ghost Princess', bounty: 'Unknown', desc: 'Moria\'s commander who uses Hollow-Hollow Fruit to project ghosts that drain all will to live from her enemies.', initial: 'P', image: 'images/per.jpg' },
+      { name: 'Absalom', role: 'Zombie General', bounty: 'Unknown', desc: 'A stitched-together general with invisibility powers from the Clear-Clear Fruit. Commands the zombie soldiers.', initial: 'Ab', image: 'images/img.png' },
+      { name: 'Oars', role: 'Special Zombie', bounty: 'None (Zombie)', desc: 'A massive ancient giant zombie brought to life with Luffy\'s shadow. The "Continent Puller" is Moria\'s ultimate weapon.', initial: 'O', image: 'images/oar.jpg' }
+    ]
+  },
+  {
     id: 'marineford',
     title: 'Marineford',
     saga: 'Summit War Saga',
@@ -48,6 +93,51 @@ const ARC_DATA = [
       { name: 'Sengoku', role: 'Fleet Admiral • Buddha', bounty: 'None (Marine)', desc: 'The Buddha — strategic mastermind of the Marines who orchestrated the public execution to lure Whitebeard.', initial: 'Se', image: 'images/goku.jpg' },
       { name: 'Jinbe', role: 'Helmsman • Fish-Man', bounty: '₿1,100,000,000', desc: 'A Fish-Man Karate master and former Warlord. His honor and loyalty make him one of the most respected figures on the seas.', initial: 'J', image: 'images/jin.jpg' },
       { name: 'Boa Hancock', role: 'Warlord • Pirate Empress', bounty: '₿1,659,000,000', desc: 'The most beautiful woman in the world and wielder of the Love-Love Fruit. Empress of Amazon Lily.', initial: 'H', image: 'images/boa.jpg' }
+    ]
+  },
+  {
+    id: 'fishman-island',
+    title: 'Fishman Island',
+    saga: 'Fish-Man Island Saga',
+    desc: 'Beneath the sea — a kingdom of prejudice, prophecy, and redemption.',
+    gradient: 'linear-gradient(135deg, #0077b6, #023e5c)',
+    image: 'images/fish.jpg',
+    characters: [
+      { name: 'Hody Jones', role: 'New Fish-Man Pirates Captain', bounty: 'Unknown', desc: 'A great white shark Fish-Man driven by hatred for humans. He uses Energy Steroids to fuel his campaign of terror.', initial: 'HJ', image: 'images/hody.jpg' },
+      { name: 'Shirahoshi', role: 'Mermaid Princess', bounty: 'None', desc: 'The giant mermaid princess with the power of Poseidon — the ability to command the Sea Kings. A gentle soul.', initial: 'Sh', image: 'images/shi.jpg' },
+      { name: 'Fisher Tiger', role: 'Adventurer (Flashback)', bounty: '₿230,000,000', desc: 'The legendary Sun Pirates captain who climbed the Red Line bare-handed to free slaves from the World Nobles.', initial: 'FT', image: 'images/ft.jpg' },
+      { name: 'Queen Otohime', role: 'Queen (Flashback)', bounty: 'None', desc: 'The beloved queen who championed coexistence between humans and Fish-Men through peaceful petition.', initial: 'Ot', image: 'images/otohi.jpg' },
+      { name: 'Neptune', role: 'King of Fish-Man Island', bounty: 'None', desc: 'The coelacanth merman who rules the Ryugu Kingdom. A powerful warrior and devoted father protecting his people.', initial: 'Np', image: 'images/nep.jpg' }
+    ]
+  },
+  {
+    id: 'dressrosa',
+    title: 'Dressrosa',
+    saga: 'Dressrosa Saga',
+    desc: 'A kingdom of passion, toys, and a tyrant who pulls strings from the shadows.',
+    gradient: 'linear-gradient(135deg, #e63946, #4a0d17)',
+    image: 'images/dress.jpg',
+    characters: [
+      { name: 'Donquixote Doflamingo', role: 'Warlord • Heavenly Demon', bounty: '₿340,000,000', desc: 'The Heavenly Demon — a fallen Celestial Dragon who rules Dressrosa with string powers and an iron grip.', initial: 'Do', image: 'images/dd.jpg' },
+      { name: 'Trafalgar D. Law', role: 'Surgeon of Death', bounty: '₿3,000,000,000', desc: 'The "Surgeon of Death" wielding the Op-Op Fruit. His alliance with Luffy aims to topple the Emperor Kaido.', initial: 'TL', image: 'images/law.jpg' },
+      { name: 'Rebecca', role: 'Gladiator Princess', bounty: 'None', desc: 'The undefeated gladiator of the Corrida Colosseum. She fights with a defensive style to protect without killing.', initial: 'Re', image: 'images/reb.jpg' },
+      { name: 'Sabo', role: 'Chief of Staff • Revolutionary', bounty: '₿602,000,000', desc: 'Luffy\'s sworn brother, thought to be dead. Inheritor of Ace\'s Flame-Flame Fruit and the No. 2 of the Revolutionary Army.', initial: 'Sa', image: 'images/sabo.jpg' },
+      { name: 'Kyros', role: 'Legendary Gladiator', bounty: 'None', desc: 'The undefeated gladiator turned tin soldier. A one-legged warrior whose 3,000-win record was erased from history.', initial: 'Ky', image: 'images/kyros.jpg' }
+    ]
+  },
+  {
+    id: 'whole-cake',
+    title: 'Whole Cake Island',
+    saga: 'Whole Cake Saga',
+    desc: 'A tea party you can\'t refuse — in a candy-coated nightmare empire.',
+    gradient: 'linear-gradient(135deg, #d63384, #4a1038)',
+    image: 'images/cake.jpg',
+    characters: [
+      { name: 'Big Mom', role: 'Yonko • Charlotte Linlin', bounty: '₿4,388,000,000', desc: 'The iron-willed matriarch of the Charlotte Family. Her Soul-Soul Fruit powers create a living nightmare of homies.', initial: 'BM', image: 'images/bigmom.jpg' },
+      { name: 'Katakuri', role: 'Sweet Commander', bounty: '₿1,057,000,000', desc: 'Big Mom\'s strongest son with advanced Observation Haki. His mochi powers and honor make him Luffy\'s greatest rival.', initial: 'Ka', image: 'images/kata.jpg' },
+      { name: 'Charlotte Pudding', role: 'Three-Eyed Tribe', bounty: 'Unknown', desc: 'A three-eyed girl torn between her mother\'s cruelty and her own kindness. Her true feelings for Sanji define her arc.', initial: 'Pu', image: 'images/cp.jpg' },
+      { name: 'Pedro', role: 'Guardian • Mink Warrior', bounty: '₿382,000,000', desc: 'A jaguar mink and Mokomo Dukedom\'s guardian. His sacrifice lit the fuse for the crew\'s daring escape.', initial: 'Pe', image: 'images/pedro.jpg' },
+      { name: 'Vinsmoke Judge', role: 'Germa 66 Commander', bounty: 'Unknown', desc: 'The ruthless king of the Germa Kingdom and leader of Germa 66. A scientist who turned his own children into weapons.', initial: 'VJ', image: 'images/vin.jpg' }
     ]
   },
   {
@@ -74,10 +164,11 @@ const driver = neo4j.driver(
 
 async function seedDatabase() {
   const session = driver.session();
-  console.log("Setting sail to seed the database...");
+  console.log("Setting sail to seed the entire Grand Line...");
 
   try {
     for (const arc of ARC_DATA) {
+      // MERGE prevents duplicates. If the arc exists, it just updates it.
       await session.run(`
         MERGE (a:Arc {id: $id})
         SET a.title = $title, a.saga = $saga, a.desc = $desc, 
@@ -100,9 +191,9 @@ async function seedDatabase() {
           desc: char.desc, initial: char.initial, image: char.image
         });
       }
-      console.log(`Inserted Arc: ${arc.title}`);
+      console.log(`Successfully mapped: ${arc.title}`);
     }
-    console.log("Database seeded successfully with REAL data!");
+    console.log("✅ The Grand Line database is fully populated!");
   } catch (error) {
     console.error("Error seeding database:", error);
   } finally {
