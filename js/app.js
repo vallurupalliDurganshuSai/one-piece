@@ -1,194 +1,191 @@
 /* ================================================================
-   ONE PIECE — Arc Data & Landing Page Logic
+   ONE PIECE — Arc Data & Landing Page Logic (Dynamic & Graph-Enabled)
    ================================================================ */
 
-const ARC_DATA = [
-  {
-    id: 'romance-dawn',
-    title: 'Romance Dawn',
-    saga: 'East Blue Saga',
-    desc: 'Where it all begins — Luffy sets sail to become the King of the Pirates.',
-    gradient: 'linear-gradient(135deg, #1a3a5c, #0d1b2a)',
-    image: 'images/Screenshot 2026-02-13 234254.png',
-    characters: [
-      { name: 'Monkey D. Luffy', role: 'Captain • Straw Hat Pirates', bounty: '₿3,000,000,000', desc: 'The rubber-powered dreamer who will become King of the Pirates. His unwavering determination and infectious spirit draw allies to his cause.', initial: 'L', image: 'images/luffy.jpg' },
-      { name: 'Roronoa Zoro', role: 'Swordsman • First Mate', bounty: '₿1,111,000,000', desc: 'A three-sword-style master with an unyielding ambition to become the world\'s greatest swordsman. Luffy\'s first crewmate.', initial: 'Z', image: 'images/zoro.jpg' },
-      { name: 'Nami', role: 'Navigator', bounty: '₿366,000,000', desc: 'A genius cartographer and thief with a dream to chart the entire world. Her mastery over weather makes her invaluable.', initial: 'N', image: 'images/nami.jpg' },
-      { name: 'Usopp', role: 'Sniper', bounty: '₿500,000,000', desc: 'The brave warrior of the sea — or so he claims. A gifted marksman and inventor whose lies have a way of coming true.', initial: 'U', image: 'images/usopp.jpg' },
-      { name: 'Sanji', role: 'Cook • Black Leg', bounty: '₿1,032,000,000', desc: 'A chivalrous chef with devastating kick-based martial arts. Dreams of finding the All Blue, a sea with every fish in the world.', initial: 'S', image: 'images/sanji.jpg' }
-    ]
-  },
-  {
-    id: 'alabasta',
-    title: 'Alabasta',
-    saga: 'Alabasta Saga',
-    desc: 'A desert kingdom on the brink of civil war — and a conspiracy that runs deep.',
-    gradient: 'linear-gradient(135deg, #8B6914, #3d2e0a)',
-    image: 'images/arabasta saga.jpg',
-    characters: [
-      { name: 'Nefertari Vivi', role: 'Princess of Alabasta', bounty: 'None (Royalty)', desc: 'A courageous princess who infiltrated Baroque Works to save her kingdom from destruction. A friend of the Straw Hats forever.', initial: 'V', image: 'images/vivi.jpg' },
-      { name: 'Sir Crocodile', role: 'Warlord • Baroque Works Boss', bounty: '₿1,965,000,000', desc: 'The sand-manipulating mastermind behind Alabasta\'s downfall. One of the Seven Warlords of the Sea turned rogue.', initial: 'C', image: 'images/sir.jpg' },
-      { name: 'Portgas D. Ace', role: 'Commander • Whitebeard Pirates', bounty: '₿550,000,000', desc: 'Luffy\'s older brother with the power of the Flame-Flame Fruit. Commander of Whitebeard\'s second division.', initial: 'A', image: 'images/ace.jpg' },
-      { name: 'Nico Robin', role: 'Archaeologist', bounty: '₿930,000,000', desc: 'The sole survivor of Ohara who can read the Poneglyphs. She joins the crew seeking the true history of the world.', initial: 'R', image: 'images/robin.jpg' },
-      { name: 'Tony Tony Chopper', role: 'Doctor • Reindeer', bounty: '₿1,000', desc: 'A reindeer who ate the Human-Human Fruit. A brilliant doctor with multiple transformation points and a heart of gold.', initial: 'Ch', image: 'images/chopper.jpg' }
-    ]
-  },
-  {
-    id: 'skypiea',
-    title: 'Skypiea',
-    saga: 'Sky Island Saga',
-    desc: 'An island in the clouds where a self-proclaimed god rules with thunder.',
-    gradient: 'linear-gradient(135deg, #4a90d9, #1a3a6c)',
-    image: 'images/skypiea.jpg',
-    characters: [
-      { name: 'Enel', role: 'God of Skypiea', bounty: '₿500,000,000 (est.)', desc: 'A tyrannical ruler wielding the power of lightning. Considers himself an almighty god destined to reach the moon.', initial: 'E', image: 'images/enel.jpg' },
-      { name: 'Wyper', role: 'Shandian Warrior', bounty: 'None', desc: 'A fierce Shandian warrior determined to reclaim his ancestral homeland. Carries the will of the great warrior Kalgara.', initial: 'W', image: 'images/wyper.jpg' },
-      { name: 'Gan Fall', role: 'Former God of Skypiea', bounty: 'None', desc: 'The benevolent former ruler of Skypiea who rides a pegasus named Pierre. Fights to liberate his homeland.', initial: 'G', image: 'images/fall.jpg' },
-      { name: 'Conis', role: 'Skypiean Citizen', bounty: 'None', desc: 'A kind-hearted sky islander who befriends the Straw Hats and risks everything to oppose Enel\'s tyranny.', initial: 'Co', image: 'images/conis.jpg' },
-      { name: 'Mont Blanc Noland', role: 'Explorer (Flashback)', bounty: 'None (Executed)', desc: 'The legendary explorer branded a liar for telling of a city of gold. His tale spans 400 years of sorrow.', initial: 'MN', image: 'images/noland.jpg' }
-    ]
-  },
-  {
-    id: 'enies-lobby',
-    title: 'Enies Lobby',
-    saga: 'Water 7 Saga',
-    desc: 'The Straw Hats declare war on the World Government to save a friend.',
-    gradient: 'linear-gradient(135deg, #c0392b, #5a1a14)',
-    image: 'images/enies.jpg',
-    characters: [
-      { name: 'Franky', role: 'Shipwright • Cyborg', bounty: '₿394,000,000', desc: 'A cola-powered cyborg shipwright who built the Thousand Sunny. His dream is to sail aboard a ship that conquers the seas.', initial: 'F', image: 'images/franky.jpg' },
-      { name: 'Rob Lucci', role: 'CP9 Agent', bounty: 'Classified', desc: 'The deadliest assassin of Cipher Pol 9 with mastery over Rokushiki and a leopard Zoan fruit. A cold-blooded killing machine.', initial: 'RL', image: 'images/rob.jpg' },
-      { name: 'Iceburg', role: 'Mayor of Water 7', bounty: 'None', desc: 'The president of the Galley-La Company and mayor of Water 7. A former apprentice of the legendary shipwright Tom.', initial: 'I', image: 'images/ice.jpg' },
-      { name: 'Spandam', role: 'CP9 Chief', bounty: 'None (Government)', desc: 'The incompetent head of CP9 whose obsession with ancient weapons leads to the Buster Call on Enies Lobby.', initial: 'Sp', image: 'images/img.png' },
-      { name: 'Kaku', role: 'CP9 Agent • Swordsman', bounty: 'Classified', desc: 'A skilled swordsman and CP9 agent who consumed the Giraffe Zoan fruit. Expert in Rokushiki techniques.', initial: 'K', image: 'images/kaku.jpg' }
-    ]
-  },
-  {
-    id: 'thriller-bark',
-    title: 'Thriller Bark',
-    saga: 'Thriller Bark Saga',
-    desc: 'A haunted ship the size of an island — where shadows come alive.',
-    gradient: 'linear-gradient(135deg, #2c1445, #0d0517)',
-    image: 'images/thriller.jpg',
-    characters: [
-      { name: 'Brook', role: 'Musician • Soul King', bounty: '₿383,000,000', desc: 'A living skeleton revived by the Revive-Revive Fruit. A soulful musician carrying a promise made 50 years ago.', initial: 'B', image: 'images/brook.jpg' },
-      { name: 'Gecko Moria', role: 'Warlord of the Sea', bounty: '₿320,000,000', desc: 'A former Warlord who commands shadows. Once rivaled Kaido and now rules Thriller Bark with an army of zombies.', initial: 'GM', image: 'images/gecko.jpg' },
-      { name: 'Perona', role: 'Ghost Princess', bounty: 'Unknown', desc: 'Moria\'s commander who uses Hollow-Hollow Fruit to project ghosts that drain all will to live from her enemies.', initial: 'P', image: 'images/per.jpg' },
-      { name: 'Absalom', role: 'Zombie General', bounty: 'Unknown', desc: 'A stitched-together general with invisibility powers from the Clear-Clear Fruit. Commands the zombie soldiers.', initial: 'Ab', image: 'images/img.png' },
-      { name: 'Oars', role: 'Special Zombie', bounty: 'None (Zombie)', desc: 'A massive ancient giant zombie brought to life with Luffy\'s shadow. The "Continent Puller" is Moria\'s ultimate weapon.', initial: 'O', image: 'images/oar.jpg' }
-    ]
-  },
-  {
-    id: 'marineford',
-    title: 'Marineford',
-    
-    saga: 'Summit War Saga',
-    desc: 'The greatest war in pirate history — where legends clashed and the world changed forever.',
-    gradient: 'linear-gradient(135deg, #1a1a2e, #780000)',
-    image: 'images/marine.jpg',
-    characters: [
-      { name: 'Edward Newgate', role: 'Whitebeard • Yonko', bounty: '₿5,046,000,000', desc: 'The strongest man in the world and "father" to thousands. He who stood at the pinnacle of the pirate era.', initial: 'WB', image: 'images/newgate.jpg' },
-      { name: 'Akainu', role: 'Admiral • Magma', bounty: 'None (Marine)', desc: 'Fleet Admiral Sakazuki — the embodiment of Absolute Justice. His magma fists changed the tide of the war.', initial: 'Ak', image: 'images/akainu.jpg' },
-      { name: 'Sengoku', role: 'Fleet Admiral • Buddha', bounty: 'None (Marine)', desc: 'The Buddha — strategic mastermind of the Marines who orchestrated the public execution to lure Whitebeard.', initial: 'Se', image: 'images/goku.jpg' },
-      { name: 'Jinbe', role: 'Helmsman • Fish-Man', bounty: '₿1,100,000,000', desc: 'A Fish-Man Karate master and former Warlord. His honor and loyalty make him one of the most respected figures on the seas.', initial: 'J', image: 'images/jin.jpg' },
-      { name: 'Boa Hancock', role: 'Warlord • Pirate Empress', bounty: '₿1,659,000,000', desc: 'The most beautiful woman in the world and wielder of the Love-Love Fruit. Empress of Amazon Lily.', initial: 'H', image: 'images/boa.jpg' }
-    ]
-  },
-  {
-    id: 'fishman-island',
-    title: 'Fishman Island',
-    saga: 'Fish-Man Island Saga',
-    desc: 'Beneath the sea — a kingdom of prejudice, prophecy, and redemption.',
-    gradient: 'linear-gradient(135deg, #0077b6, #023e5c)',
-    image: 'images/fish.jpg',
-    characters: [
-      { name: 'Hody Jones', role: 'New Fish-Man Pirates Captain', bounty: 'Unknown', desc: 'A great white shark Fish-Man driven by hatred for humans. He uses Energy Steroids to fuel his campaign of terror.', initial: 'HJ', image: 'images/hody.jpg' },
-      { name: 'Shirahoshi', role: 'Mermaid Princess', bounty: 'None', desc: 'The giant mermaid princess with the power of Poseidon — the ability to command the Sea Kings. A gentle soul.', initial: 'Sh', image: 'images/shi.jpg' },
-      { name: 'Fisher Tiger', role: 'Adventurer (Flashback)', bounty: '₿230,000,000', desc: 'The legendary Sun Pirates captain who climbed the Red Line bare-handed to free slaves from the World Nobles.', initial: 'FT', image: 'images/ft.jpg' },
-      { name: 'Queen Otohime', role: 'Queen (Flashback)', bounty: 'None', desc: 'The beloved queen who championed coexistence between humans and Fish-Men through peaceful petition.', initial: 'Ot', image: 'images/otohi.jpg' },
-      { name: 'Neptune', role: 'King of Fish-Man Island', bounty: 'None', desc: 'The coelacanth merman who rules the Ryugu Kingdom. A powerful warrior and devoted father protecting his people.', initial: 'Np', image: 'images/nep.jpg' }
-    ]
-  },
-  {
-    id: 'dressrosa',
-    title: 'Dressrosa',
-    saga: 'Dressrosa Saga',
-    desc: 'A kingdom of passion, toys, and a tyrant who pulls strings from the shadows.',
-    gradient: 'linear-gradient(135deg, #e63946, #4a0d17)',
-    image: 'images/dress.jpg',
-    characters: [
-      { name: 'Donquixote Doflamingo', role: 'Warlord • Heavenly Demon', bounty: '₿340,000,000', desc: 'The Heavenly Demon — a fallen Celestial Dragon who rules Dressrosa with string powers and an iron grip.', initial: 'Do', image: 'images/dd.jpg' },
-      { name: 'Trafalgar D. Law', role: 'Surgeon of Death', bounty: '₿3,000,000,000', desc: 'The "Surgeon of Death" wielding the Op-Op Fruit. His alliance with Luffy aims to topple the Emperor Kaido.', initial: 'TL', image: 'images/law.jpg' },
-      { name: 'Rebecca', role: 'Gladiator Princess', bounty: 'None', desc: 'The undefeated gladiator of the Corrida Colosseum. She fights with a defensive style to protect without killing.', initial: 'Re', image: 'images/reb.jpg' },
-      { name: 'Sabo', role: 'Chief of Staff • Revolutionary', bounty: '₿602,000,000', desc: 'Luffy\'s sworn brother, thought to be dead. Inheritor of Ace\'s Flame-Flame Fruit and the No. 2 of the Revolutionary Army.', initial: 'Sa', image: 'images/sabo.jpg' },
-      { name: 'Kyros', role: 'Legendary Gladiator', bounty: 'None', desc: 'The undefeated gladiator turned tin soldier. A one-legged warrior whose 3,000-win record was erased from history.', initial: 'Ky', image: 'images/kyros.jpg' }
-    ]
-  },
-  {
-    id: 'whole-cake',
-    title: 'Whole Cake Island',
-    saga: 'Whole Cake Saga',
-    desc: 'A tea party you can\'t refuse — in a candy-coated nightmare empire.',
-    gradient: 'linear-gradient(135deg, #d63384, #4a1038)',
-    image: 'images/cake.jpg',
-    characters: [
-      { name: 'Big Mom', role: 'Yonko • Charlotte Linlin', bounty: '₿4,388,000,000', desc: 'The iron-willed matriarch of the Charlotte Family. Her Soul-Soul Fruit powers create a living nightmare of homies.', initial: 'BM', image: 'images/bigmom.jpg' },
-      { name: 'Katakuri', role: 'Sweet Commander', bounty: '₿1,057,000,000', desc: 'Big Mom\'s strongest son with advanced Observation Haki. His mochi powers and honor make him Luffy\'s greatest rival.', initial: 'Ka', image: 'images/kata.jpg' },
-      { name: 'Charlotte Pudding', role: 'Three-Eyed Tribe', bounty: 'Unknown', desc: 'A three-eyed girl torn between her mother\'s cruelty and her own kindness. Her true feelings for Sanji define her arc.', initial: 'Pu', image: 'images/cp.jpg' },
-      { name: 'Pedro', role: 'Guardian • Mink Warrior', bounty: '₿382,000,000', desc: 'A jaguar mink and Mokomo Dukedom\'s guardian. His sacrifice lit the fuse for the crew\'s daring escape.', initial: 'Pe', image: 'images/pedro.jpg' },
-      { name: 'Vinsmoke Judge', role: 'Germa 66 Commander', bounty: 'Unknown', desc: 'The ruthless king of the Germa Kingdom and leader of Germa 66. A scientist who turned his own children into weapons.', initial: 'VJ', image: 'images/vin.jpg' }
-    ]
-  },
-  {
-    id: 'wano',
-    title: 'Wano',
-    saga: 'Wano Country Saga',
-    desc: 'The land of samurai — where 20 years of prophecy converge in an epic battle.',
-    gradient: 'linear-gradient(135deg, #6d28d9, #1a0a3e)',
-    image: 'images/wano.jpg',
-    characters: [
-      { name: 'Kaido', role: 'Yonko • King of Beasts', bounty: '₿4,611,100,000', desc: 'The world\'s strongest creature in the form of a mythical dragon. An indestructible force who seeks the ultimate war.', initial: 'Ka', image: 'images/kaido.jpg' },
-      { name: 'Yamato', role: 'Oni Princess', bounty: 'Unknown', desc: 'Kaido\'s daughter who idolizes Kozuki Oden. She has awaited the one Oden prophesied for twenty long years.', initial: 'Y', image: 'images/yam.jpg' },
-      { name: 'Kozuki Oden', role: 'Daimyo • Samurai Legend', bounty: 'Unknown', desc: 'The legendary samurai who sailed with both Roger and Whitebeard. His sacrifice ignited the flame of Wano\'s liberation.', initial: 'Od', image: 'images/oden.jpg' },
-      { name: 'Kinemon', role: 'Samurai • Leader of Scabbards', bounty: 'Unknown', desc: 'Leader of the Nine Red Scabbards, loyal retainers of Oden. He traveled through time to gather allies for the raid.', initial: 'Ki', image: 'images/kine.jpg' },
-      { name: 'Momonosuke', role: 'Shogun of Wano', bounty: 'Unknown', desc: 'Son of Oden, sent 20 years into the future. A young dragon who must grow into the leader Wano needs.', initial: 'Mo', image: 'images/momo.jpg' }
-    ]
-  }
-];
+// We keep this global so arc.js can potentially use it if navigating locally, 
+// though ideally arc.js will fetch its own data.
+window.ARC_DATA = [];
 
-/* ---------- DOM Ready ---------- */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const grid = document.getElementById('arc-grid');
   if (!grid) return;
 
-  ARC_DATA.forEach((arc, idx) => {
-    const card = document.createElement('div');
-    card.className = 'arc-card';
-    card.setAttribute('data-arc', arc.id);
-    card.style.animationDelay = `${idx * .08}s`;
+  try {
+    // 1. Fetch data from your new Neo4j API
+    const response = await fetch('/api/arcs');
+    window.ARC_DATA = await response.json();
 
-    card.innerHTML = `
-      <div class="arc-card__bg" style="background: ${arc.gradient};opacity:.55;"></div>
-      <img class="arc-card__image" src="${arc.image}" alt="${arc.title}" />
-      <span class="arc-card__arrow">→</span>
-      <div class="arc-card__content">
-        <p class="arc-card__saga">${arc.saga}</p>
-        <h3 class="arc-card__title">${arc.title}</h3>
-        <p class="arc-card__desc">${arc.desc}</p>
-      </div>
-    `;
+    // ==============================================================
+    // UPGRADE 1: LIVE DATABASE STATISTICS
+    // ==============================================================
+    let totalArcs = window.ARC_DATA.length;
+    let totalCharacters = 0;
 
-    card.addEventListener('click', () => {
-      window.location.href = `arc.html?arc=${arc.id}`;
+    window.ARC_DATA.forEach(arc => {
+      if (arc.characters) {
+        totalCharacters += arc.characters.length;
+      }
     });
 
-    grid.appendChild(card);
-  });
+    const nodeCount = totalArcs + totalCharacters;
+    const relCount = totalCharacters; // One relationship per character to their arc
 
-  // Stagger entrance animation
-  requestAnimationFrame(() => {
-    grid.querySelectorAll('.arc-card').forEach((c, i) => {
-      setTimeout(() => c.classList.add('visible'), i * 80);
+    const dbStatsEl = document.getElementById('db-stats');
+    const nodeCountEl = document.getElementById('node-count');
+    const relCountEl = document.getElementById('rel-count');
+
+    if (nodeCountEl && relCountEl && dbStatsEl) {
+      nodeCountEl.innerText = nodeCount;
+      relCountEl.innerText = relCount;
+      // Fade it in to look smooth
+      dbStatsEl.style.opacity = 1;
+      dbStatsEl.style.transition = "opacity 0.8s ease";
+    }
+
+    // ==============================================================
+    // 2. Render the cards using the fetched data
+    // ==============================================================
+    window.ARC_DATA.forEach((arc, idx) => {
+      const card = document.createElement('div');
+      card.className = 'arc-card';
+      card.setAttribute('data-arc', arc.id);
+      card.style.animationDelay = `${idx * .08}s`;
+
+      card.innerHTML = `
+        <div class="arc-card__bg" style="background: ${arc.gradient};opacity:.55;"></div>
+        <img class="arc-card__image" src="${arc.image}" alt="${arc.title}" />
+        <span class="arc-card__arrow">→</span>
+        <div class="arc-card__content">
+          <p class="arc-card__saga">${arc.saga}</p>
+          <h3 class="arc-card__title">${arc.title}</h3>
+          <p class="arc-card__desc">${arc.desc}</p>
+        </div>
+      `;
+
+      card.addEventListener('click', () => {
+        window.location.href = `arc.html?arc=${arc.id}`;
+      });
+
+      grid.appendChild(card);
     });
-  });
+
+    // 3. Trigger entrance animations
+    requestAnimationFrame(() => {
+      grid.querySelectorAll('.arc-card').forEach((c, i) => {
+        setTimeout(() => c.classList.add('visible'), i * 80);
+      });
+    });
+
+    // ==============================================================
+    // UPGRADE 2: INTERACTIVE KNOWLEDGE GRAPH TOGGLE
+    // ==============================================================
+    const toggleBtn = document.getElementById('toggle-view-btn');
+    const graphContainer = document.getElementById('graph-container');
+    let graphInitialized = false;
+
+    if (toggleBtn && graphContainer) {
+      toggleBtn.addEventListener('click', () => {
+        if (graphContainer.style.display === 'none') {
+          // Show Graph, Hide Grid
+          graphContainer.style.display = 'block';
+          grid.style.display = 'none';
+          toggleBtn.innerHTML = '🃏 View Card Grid';
+          
+          // Only build the graph once to save performance
+          if (!graphInitialized) {
+            buildNeo4jGraph(window.ARC_DATA);
+            graphInitialized = true;
+          }
+        } else {
+          // Show Grid, Hide Graph
+          graphContainer.style.display = 'none';
+          grid.style.display = 'grid';
+          toggleBtn.innerHTML = '👁️ View Neo4j Knowledge Graph';
+        }
+      });
+    }
+
+  } catch (error) {
+    console.error("Failed to load arcs from database:", error);
+    grid.innerHTML = "<p style='color: var(--white); text-align: center; grid-column: 1/-1;'>Failed to load Grand Line data. The World Government might be blocking the signal.</p>";
+  }
 });
+
+// ==============================================================
+// VIS.JS KNOWLEDGE GRAPH BUILDER
+// ==============================================================
+function buildNeo4jGraph(data) {
+  const nodes = [];
+  const edges = [];
+
+  data.forEach(arc => {
+    // 1. Create a Node for the Arc
+    nodes.push({
+      id: arc.id,
+      label: arc.title,
+      shape: 'hexagon',
+      color: {
+        background: '#142240', // var(--navy-mid)
+        border: '#4a9bd9',     // var(--blue)
+        highlight: { background: '#2e6ea3', border: '#6db8f0' }
+      },
+      font: { color: '#ffffff', size: 16, face: 'Cinzel' },
+      borderWidth: 2
+    });
+
+    // 2. Create Nodes for Characters and link them to the Arc
+    if (arc.characters) {
+      arc.characters.forEach(char => {
+        // Create Character ID (lowercase with hyphens)
+        const charId = char.name.replace(/\s+/g, '-').toLowerCase();
+        
+        // Only add character node if it doesn't exist yet 
+        if (!nodes.find(n => n.id === charId)) {
+          nodes.push({
+            id: charId,
+            label: char.name,
+            shape: 'dot',
+            size: 10,
+            color: {
+              background: '#4a9bd9', // var(--blue)
+              border: '#ffffff'
+            },
+            font: { color: '#c8d6e8', size: 12, face: 'Inter' },
+            borderWidth: 1
+          });
+        }
+
+        // Create Edge (Relationship: HAS_CHARACTER)
+        edges.push({
+          from: arc.id,
+          to: charId,
+          label: 'HAS_CHARACTER',
+          font: { align: 'middle', size: 9, color: '#5e7a9a', face: 'Inter' },
+          arrows: 'to',
+          color: { color: 'rgba(74, 155, 217, 0.4)', highlight: 'rgba(74, 155, 217, 0.8)' },
+          length: 150
+        });
+      });
+    }
+  });
+
+  const container = document.getElementById('graph-container');
+  const graphData = {
+    nodes: new vis.DataSet(nodes),
+    edges: new vis.DataSet(edges)
+  };
+  
+  // Graph Physics and Interaction Options
+  const options = {
+    physics: {
+      barnesHut: { gravitationalConstant: -2000, centralGravity: 0.3, springLength: 95 },
+      solver: 'barnesHut'
+    },
+    interaction: { hover: true, tooltipDelay: 200 },
+    nodes: {
+      shadow: { enabled: true, color: 'rgba(0,0,0,0.5)', size: 10, x: 2, y: 2 }
+    }
+  };
+
+  new vis.Network(container, graphData, options);
+}
