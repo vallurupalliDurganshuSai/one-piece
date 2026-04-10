@@ -1,0 +1,25 @@
+{
+  "name": "one-piecev2",
+  "version": "1.0.0",
+  "description": "A premium, interactive web application to explore iconic One Piece story arcs and their legendary characters.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revanthm1902/one-piecev2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module", 
+  "bugs": {
+    "url": "https://github.com/revanthm1902/one-piecev2/issues"
+  },
+  "homepage": "https://github.com/revanthm1902/one-piecev2#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "neo4j-driver": "^5.20.0"
+  }
+}

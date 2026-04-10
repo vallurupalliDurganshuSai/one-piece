@@ -2,19 +2,30 @@
    ONE PIECE — Arc Detail Page Logic
    ================================================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   // Read arc id from query param
   const params = new URLSearchParams(window.location.search);
   const arcId = params.get('arc');
 
-  if (!arcId || typeof ARC_DATA === 'undefined') {
+  if (!arcId) {
     window.location.href = 'index.html';
     return;
   }
 
-  const arc = ARC_DATA.find(a => a.id === arcId);
-  if (!arc) {
-    window.location.href = 'index.html';
+  let arc;
+
+  try {
+    // Fetch the data from our API
+    const response = await fetch('/api/arcs');
+    const allArcs = await response.json();
+    arc = allArcs.find(a => a.id === arcId);
+    
+    if (!arc) {
+      window.location.href = 'index.html';
+      return;
+    }
+  } catch (err) {
+    console.error("Error fetching arc details:", err);
     return;
   }
 
@@ -25,27 +36,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Build character cards
   const charGrid = document.getElementById('character-grid');
-  arc.characters.forEach((char, idx) => {
-    const card = document.createElement('div');
-    card.className = 'character-card';
-    card.innerHTML = `
-      <div class="character-card__info">
-        <img class="character-card__avatar" src="${char.image}" alt="${char.name}" />
-        <div>
-          <div class="character-card__name">${char.name}</div>
-          <div class="character-card__role">${char.role}</div>
+  
+  // Safety check: only render if characters exist
+  if (arc.characters && arc.characters.length > 0) {
+    arc.characters.forEach((char, idx) => {
+      const card = document.createElement('div');
+      card.className = 'character-card';
+      card.innerHTML = `
+        <div class="character-card__info">
+          <img class="character-card__avatar" src="${char.image}" alt="${char.name}" />
+          <div>
+            <div class="character-card__name">${char.name}</div>
+            <div class="character-card__role">${char.role}</div>
+          </div>
         </div>
-      </div>
-      <span class="character-card__arrow">→</span>
-    `;
+        <span class="character-card__arrow">→</span>
+      `;
 
-    card.addEventListener('click', () => openModal(char));
+      card.addEventListener('click', () => openModal(char));
 
-    // Entrance animation
-    setTimeout(() => card.classList.add('visible'), idx * 100);
+      // Entrance animation
+      setTimeout(() => card.classList.add('visible'), idx * 100);
 
-    charGrid.appendChild(card);
-  });
+      charGrid.appendChild(card);
+    });
+  } else {
+    // Fallback if the database has no characters for this arc yet
+    charGrid.innerHTML = '<p style="color: var(--text-muted); text-align: center; grid-column: 1/-1;">No characters found in the database for this arc.</p>';
+  }
 
   // ---- Modal Logic ----
   const backdrop = document.getElementById('modal-backdrop');
@@ -55,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openModal(char) {
     document.getElementById('modal-char-name').textContent   = char.name;
     document.getElementById('modal-char-role').textContent   = char.role;
-    document.getElementById('modal-char-bounty').textContent = char.bounty;
+    document.getElementById('modal-char-bounty').textContent = char.bounty || 'Unknown';
     document.getElementById('modal-char-desc').textContent   = char.desc;
 
     // Set character image
