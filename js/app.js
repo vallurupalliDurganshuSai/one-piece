@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     // 1. Fetch data from your new Neo4j API
     const response = await fetch('/api/arcs');
+    if (!response.ok) {
+      throw new Error(`Server returned ${response.status}: Make sure Neo4j is running!`);
+    }
     window.ARC_DATA = await response.json();
 
     // ==============================================================
@@ -112,58 +115,67 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // ==============================================================
-// VIS.JS KNOWLEDGE GRAPH BUILDER
+// PREMIUM VIS.JS KNOWLEDGE GRAPH BUILDER
 // ==============================================================
 function buildNeo4jGraph(data) {
   const nodes = [];
   const edges = [];
 
   data.forEach(arc => {
-    // 1. Create a Node for the Arc
+    // 1. Create a Premium Node for the Arc
     nodes.push({
       id: arc.id,
-      label: arc.title,
+      label: arc.title.toUpperCase(),
       shape: 'hexagon',
+      size: 35,
       color: {
-        background: '#142240', // var(--navy-mid)
-        border: '#4a9bd9',     // var(--blue)
-        highlight: { background: '#2e6ea3', border: '#6db8f0' }
+        background: 'rgba(20, 34, 64, 0.9)', 
+        border: '#d4a84b', // Gold border for Arcs
+        highlight: { background: '#2e6ea3', border: '#f0cc73' }
       },
-      font: { color: '#ffffff', size: 16, face: 'Cinzel' },
-      borderWidth: 2
+      font: { color: '#ffffff', size: 18, face: 'Cinzel', bold: true, strokeWidth: 2, strokeColor: '#0a1424' },
+      borderWidth: 3,
+      shadow: { enabled: true, color: 'rgba(212, 168, 75, 0.4)', size: 15, x: 0, y: 0 }
     });
 
-    // 2. Create Nodes for Characters and link them to the Arc
+    // 2. Create Image Nodes for Characters
     if (arc.characters) {
       arc.characters.forEach(char => {
-        // Create Character ID (lowercase with hyphens)
         const charId = char.name.replace(/\s+/g, '-').toLowerCase();
         
-        // Only add character node if it doesn't exist yet 
+        // Only add character if it doesn't exist yet 
         if (!nodes.find(n => n.id === charId)) {
           nodes.push({
             id: charId,
             label: char.name,
-            shape: 'dot',
-            size: 10,
+            shape: 'circularImage',
+            image: char.image, // PULLS EXACT IMAGE FROM DB
+            size: 25,
             color: {
-              background: '#4a9bd9', // var(--blue)
-              border: '#ffffff'
+              border: '#4a9bd9',
+              highlight: { border: '#ffffff' }
             },
-            font: { color: '#c8d6e8', size: 12, face: 'Inter' },
-            borderWidth: 1
+            font: { 
+              color: '#c8d6e8', 
+              size: 11, 
+              face: 'Inter',
+              background: 'rgba(8, 14, 26, 0.7)' // Text readability background
+            },
+            borderWidth: 2,
+            shadow: { enabled: true, color: 'rgba(0,0,0,0.6)', size: 10, x: 2, y: 2 }
           });
         }
 
-        // Create Edge (Relationship: HAS_CHARACTER)
+        // Create Curved, Translucent Edges
         edges.push({
           from: arc.id,
           to: charId,
-          label: 'HAS_CHARACTER',
-          font: { align: 'middle', size: 9, color: '#5e7a9a', face: 'Inter' },
-          arrows: 'to',
-          color: { color: 'rgba(74, 155, 217, 0.4)', highlight: 'rgba(74, 155, 217, 0.8)' },
-          length: 150
+          label: 'IN_ARC',
+          font: { align: 'middle', size: 9, color: 'rgba(94, 122, 154, 0.7)', face: 'Inter', strokeWidth: 0 },
+          arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+          color: { color: 'rgba(74, 155, 217, 0.2)', highlight: 'rgba(212, 168, 75, 0.8)' },
+          smooth: { type: 'continuous', roundness: 0.5 }, // Beautiful curves
+          length: 200
         });
       });
     }
@@ -175,16 +187,21 @@ function buildNeo4jGraph(data) {
     edges: new vis.DataSet(edges)
   };
   
-  // Graph Physics and Interaction Options
+  // Advanced Physics for a fluid, floating feel
   const options = {
     physics: {
-      barnesHut: { gravitationalConstant: -2000, centralGravity: 0.3, springLength: 95 },
-      solver: 'barnesHut'
+      forceAtlas2Based: {
+        gravitationalConstant: -100,
+        centralGravity: 0.005,
+        springLength: 200,
+        springConstant: 0.04
+      },
+      maxVelocity: 50,
+      solver: 'forceAtlas2Based',
+      timestep: 0.35,
+      stabilization: { iterations: 150 } // Settles into a nice layout quickly
     },
-    interaction: { hover: true, tooltipDelay: 200 },
-    nodes: {
-      shadow: { enabled: true, color: 'rgba(0,0,0,0.5)', size: 10, x: 2, y: 2 }
-    }
+    interaction: { hover: true, tooltipDelay: 100, zoomView: true, dragView: true }
   };
 
   new vis.Network(container, graphData, options);
