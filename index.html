@@ -6,14 +6,11 @@
   <meta name="description" content="Explore iconic One Piece story arcs and discover the legendary characters from Romance Dawn to Wano." />
   <title>One Piece — Character Arcs</title>
 
-  <div id="db-stats" style="text-align: center; color: #4a9bd9; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 1rem; opacity: 0;">
-    🟢 LIVE AURA DB: <span id="node-count">0</span> Nodes | <span id="rel-count">0</span> Relationships
-  </div>
-
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/loading.css" />
   <link rel="stylesheet" href="css/cards.css" />
+
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 
   <style>
     /* Entrance animation for arc cards */
@@ -28,10 +25,8 @@
       transform: translateY(0);
     }
   </style>
-  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
-  <!-- ==================== LOADING SCREEN ==================== -->
   <div id="loading-screen" class="loading-screen">
     <div class="loading-logo">
       <img src="images/logo.png" alt="One Piece" />
@@ -40,7 +35,6 @@
     <div class="loading-bar"></div>
   </div>
 
-  <!-- ==================== NAVBAR ==================== -->
   <nav class="navbar">
     <div class="navbar__spacer"></div>
     <a href="index.html" class="navbar__logo">
@@ -51,21 +45,33 @@
     </a>
   </nav>
 
-  <!-- ==================== CONTENT ==================== -->
   <main class="content">
     <h1 class="section-title">Choose Your Arc</h1>
     <p class="section-subtitle">Select a saga to explore its legendary characters</p>
     <div class="gold-divider"></div>
-    <div style="text-align: center; margin-bottom: 2rem;">
-  <button id="toggle-view-btn" style="padding: 10px 20px; background: var(--blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'Cinzel', serif; font-weight: bold; letter-spacing: 1px;">
-    👁️ View Neo4j Knowledge Graph
-  </button>
-</div>
 
-<div id="graph-container" style="display: none; width: 100%; height: 600px; background: rgba(10, 20, 36, 0.95); border: 1px solid var(--blue); border-radius: 16px; margin-bottom: 2rem;"></div>
+    <div id="db-stats" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 2rem; opacity: 0; transition: opacity 1s ease;">
+      <div style="background: rgba(74, 155, 217, 0.1); border: 1px solid rgba(74, 155, 217, 0.3); padding: 8px 16px; border-radius: 20px; color: var(--blue);">
+        🟢 AURA DB ONLINE
+      </div>
+      <div style="background: rgba(212, 168, 75, 0.1); border: 1px solid rgba(212, 168, 75, 0.3); padding: 8px 16px; border-radius: 20px; color: var(--straw);">
+        <span id="node-count" style="color: white;">0</span> NODES
+      </div>
+      <div style="background: rgba(192, 57, 43, 0.1); border: 1px solid rgba(192, 57, 43, 0.3); padding: 8px 16px; border-radius: 20px; color: var(--crimson-light);">
+        <span id="rel-count" style="color: white;">0</span> LINKS
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <button id="toggle-view-btn" style="padding: 12px 28px; background: linear-gradient(135deg, var(--blue-dim), var(--navy)); color: var(--white); border: 1px solid var(--blue); border-radius: 30px; cursor: pointer; font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 1.5px; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(74, 155, 217, 0.3); transition: all 0.3s ease;">
+        👁️ VIEW KNOWLEDGE GRAPH
+      </button>
+    </div>
+
+    <div id="graph-container" style="display: none; width: 100%; height: 75vh; background: radial-gradient(circle at center, rgba(20, 34, 64, 0.8) 0%, rgba(8, 14, 26, 0.95) 100%); border: 1px solid rgba(74, 155, 217, 0.3); border-radius: 20px; margin-bottom: 3rem; box-shadow: inset 0 0 40px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px); overflow: hidden;"></div>
+
     <div id="arc-grid" class="arc-grid"></div>
 
-    <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-content">
         <img src="images/logo.png" alt="One Piece" class="footer-logo" />
@@ -77,7 +83,6 @@
     </footer>
   </main>
 
-  <!-- Scripts -->
   <script src="js/app.js"></script>
   <script src="js/loading.js"></script>
 </body>
